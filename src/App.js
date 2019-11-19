@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Router, Route, Switch, Link, NavLink } from 'react-router-dom'
+import React, { Suspense } from 'react'
+import { createBrowserHistory } from 'history'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import NotFound from './NotFound'
+import Test from './pruebas/Test'
 
-export default App;
+export const history = createBrowserHistory()
+
+const App = () => (
+  <Suspense fallback="Loading....">
+    <Router history={history}>
+      <Switch>
+        <Route path="/test" component={Test} exact={true} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
+  </Suspense>
+
+)
+
+export default App
