@@ -1,46 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Menu, Icon } from 'antd';
-
-import ForkIcon from '../icons/Fork'
-import DeliveryDelay from '../icons/DeliveryDelay'
 
 const { SubMenu } = Menu;
 
 
 
-class MenuVerticalTest extends React.Component {
-  // submenu keys of first level
-  rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+const MenuHT1 = (props) => {
 
-  state = {
-    openKeys: [],
-  };
+  const onMenuClicked = (item, key) => {
+    console.log("Item: ", item)
+  }
 
-  onOpenChange = openKeys => {
-    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
-    if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      this.setState({ openKeys });
-    } else {
-      this.setState({
-        openKeys: latestOpenKey ? [latestOpenKey] : [],
-      });
-    }
-  };
-
-  render() {
-    return (
+  return (
+    <>
+      <div>Menu Horizontal</div>
       <Menu
         mode="horizontal"
-        openKeys={this.state.openKeys}
-        onOpenChange={this.onOpenChange}
-        theme="dark"
+        onClick={onMenuClicked}
       >
         <SubMenu
           key="sub1"
           title={
             <span>
-              <DeliveryDelay className="picon"/>
+              <Icon type="appstore" />
               <span>Navigation One</span>
             </span>
           }
@@ -81,9 +64,10 @@ class MenuVerticalTest extends React.Component {
           <Menu.Item key="12">Option 12</Menu.Item>
         </SubMenu>
       </Menu>
-    );
-  }
+
+    </>
+  )
 }
 
 
-export {MenuVerticalTest as default}
+export { MenuHT1 as default }

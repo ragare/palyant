@@ -9,6 +9,7 @@ import FormTest2 from './pruebas/FormTest2'
 import TableTest from './pruebas/TableTest'
 import LayoutTest from './pruebas/LayaoutTest'
 import MenuVerticalTest from './pruebas/MenuVerticalTest'
+import MenuHT1 from './pruebas/MenuHT1'
 
 export const history = createBrowserHistory()
 
@@ -21,6 +22,7 @@ const App = () => (
         <Route path="/ttest" component={TableTest} exact={true} />
         <Route path="/layout" component={LayoutTest} exact={true} />
         <Route path="/menuv" component={MenuVerticalTest} exact={true} />
+        <Route path="/menuht1" component={MenuHT1} exact={true} />
         <Route path="/test" component={Test} exact={true} />
         <Route component={NotFound} />
       </Switch>
